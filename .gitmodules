@@ -1,0 +1,9 @@
+[submodule "spring-app"]
+	path = spring-app
+	url = git@github.com:nicopaez/spike-spring-openshift.git
+[submodule "config-server"]
+	path = config-server
+	url = git@github.com:10PinesLabs/spike-cloud-config-server.git
+[submodule "config-properties"]
+	path = config-properties
+	url = git@github.com:10PinesLabs/spike-cloud-config-properties.git
