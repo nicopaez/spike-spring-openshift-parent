@@ -1,0 +1,21 @@
+{
+   "kind": "Service",
+   "apiVersion": "v1",
+   "metadata": {
+      "name": "springpingandconfig",
+      "labels": {
+         "application": "springpingandconfig"
+      }
+   },
+   "spec": {
+      "ports": [
+         {
+            "port": 8080,
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "app": "springpingandconfig"
+      }
+   }
+}

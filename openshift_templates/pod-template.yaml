@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubernetes.io/created-by: >
+      {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"pingapp","name":"springping-1","uid":"a4ddb366-da96-11e7-8aaa-02d8407159d1","apiVersion":"v1","resourceVersion":"227532057"}}
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, memory request for container springping; cpu,
+      memory limit for container springping
+    openshift.io/deployment-config.latest-version: '1'
+    openshift.io/deployment-config.name: springping
+    openshift.io/deployment.name: springping-1
+    openshift.io/generated-by: OpenShiftWebConsole
+    openshift.io/scc: restricted
+  creationTimestamp: '2017-12-06T15:03:45Z'
+  generateName: springping-1-
+  labels:
+    app: springping
+    deployment: springping-1
+    deploymentconfig: springping
+  name: springping-1-hm4fl
+  namespace: pingapp
+  ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: springping-1
+      uid: a4ddb366-da96-11e7-8aaa-02d8407159d1
+  resourceVersion: '229476823'
+  selfLink: /api/v1/namespaces/pingapp/pods/springping-1-hm4fl
+  uid: a81133eb-da96-11e7-8aaa-02d8407159d1
+spec:
+  containers:
+    - args:
+      image: 172.30.17.124:5000/pingapp/configserver:20171219.1
+      imagePullPolicy: Always
+      name: configserver
+      ports:
+        - containerPort: 8081
+          protocol: TCP
+    - args: 
+      image: 172.30.17.124:5000/pingapp/pingapp@sha256:9e0f748d649ec9ab50706dd3b51cf91100faafba5cd596c921230c9c6789bc4a
+      imagePullPolicy: Always
+      name: springping
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+      resources:
+        limits:
+          cpu: '1'
+          memory: 512Mi
+        requests:
+          cpu: 60m
+          memory: 307Mi
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - NET_RAW
+            - SETGID
+            - SETUID
+        privileged: false
+        runAsUser: 1133450000
+        seLinuxOptions:
+          level: 's0:c365,c295'
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: default-token-dfzjl
+          readOnly: true
+  dnsPolicy: ClusterFirst
+  imagePullSecrets:
+    - name: default-dockercfg-hqspr
+  nodeName: ip-172-31-18-107.ca-central-1.compute.internal
+  nodeSelector:
+    type: compute
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1133450000
+    seLinuxOptions:
+      level: 's0:c365,c295'
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  volumes:
+    - name: default-token-dfzjl
+      secret:
+        defaultMode: 420
+        secretName: default-token-dfzjl
+status:
+  conditions:
+    - lastProbeTime: null
+      lastTransitionTime: '2017-12-06T15:03:45Z'
+      status: 'True'
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: '2017-12-06T15:03:58Z'
+      status: 'True'
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: '2017-12-06T15:03:45Z'
+      status: 'True'
+      type: PodScheduled
+  containerStatuses:
+    - containerID: >-
+        docker://e68ef794afa2f34117bbe78baaa2fa43a82ee0c86d83430e495f9c3ba994df1c
+      image: >-
+        172.30.17.124:5000/pingapp/pingapp@sha256:9e0f748d649ec9ab50706dd3b51cf91100faafba5cd596c921230c9c6789bc4a
+      imageID: >-
+        docker-pullable://172.30.17.124:5000/pingapp/pingapp@sha256:9e0f748d649ec9ab50706dd3b51cf91100faafba5cd596c921230c9c6789bc4a
+      lastState: {}
+      name: springping
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: '2017-12-06T15:03:58Z'
+  hostIP: 172.31.18.107
+  phase: Running
+  podIP: 10.129.16.64
+  qosClass: Burstable
+  startTime: '2017-12-06T15:03:45Z'
