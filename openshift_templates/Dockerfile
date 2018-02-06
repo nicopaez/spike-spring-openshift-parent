@@ -6,7 +6,7 @@ RUN mkdir -p /var/www/springping
 
 WORKDIR /var/www/springping
 
-RUN wget http://madariaga1.claro.amx:8081/artifactory/libs-release-local/com/claro/amx/ums/ums-backend/3.1.7/ums-backend-3.1.7.jar -O springping.jar
+RUN wget http://159.89.179.254:8081/artifactory/libs-release/com/nicopaez/springping/nicopaez-springping/2.0.2/nicopaez-springping-2.0.2.jar -O springping.jar
 
 EXPOSE 8080
 
