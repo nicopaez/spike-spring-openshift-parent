@@ -6,3 +6,6 @@ oc new-app nicopaez/springping:latest+nicopaez/configserver:latest
 
 # Create the app
 oc expose svc/springping
+
+# Update an image and trigger a new deploy based on it
+oc import-image springping
