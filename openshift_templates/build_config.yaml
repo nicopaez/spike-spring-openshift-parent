@@ -1,0 +1,17 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "springping-build" 
+spec:
+  runPolicy: "Serial" 
+  source:
+    Type: Git 
+    git:
+      uri: https://github.com/nicopaez/spike-spring-openshift-dockerfiles
+    contextDir: springping/
+  strategy: 
+    type: Docker
+  output: 
+    to:
+      kind: "ImageStreamTag"
+      name: "springping:latest"
