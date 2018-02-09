@@ -4,6 +4,8 @@ oc new-project myproject --display-name="myproject"
 # Create the app
 oc new-app nicopaez/springping:latest+nicopaez/configserver:latest
 
+oc new-app reactapp:latest+configserver:latest
+
 # Create the app
 oc expose svc/springping
 

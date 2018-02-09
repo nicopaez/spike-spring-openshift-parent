@@ -1,0 +1,17 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "reactapp-build" 
+spec:
+  runPolicy: "Serial" 
+  source:
+    Type: Git 
+    git:
+      uri: https://github.com/nicopaez/spike-spring-openshift-dockerfiles
+    contextDir: reactapp/
+  strategy: 
+    type: Docker
+  output: 
+    to:
+      kind: "ImageStreamTag"
+      name: "reactapp:latest"
