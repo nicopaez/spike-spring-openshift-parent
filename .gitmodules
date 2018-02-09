@@ -7,3 +7,6 @@
 [submodule "config-properties"]
 	path = config-properties
 	url = git@github.com:10PinesLabs/spike-cloud-config-properties.git
+[submodule "dockerfiles"]
+	path = dockerfiles
+	url = https://github.com/nicopaez/spike-spring-openshift-dockerfiles.git
